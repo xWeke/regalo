@@ -141,6 +141,18 @@ cada una y monta Preloader, Cursor, Header, SideLabels y `DepthStage`.
   se conserva intacto en `../Regalo_OLD/` (sin `node_modules`, reinstalar con
   `npm install` si se quiere levantar) — no está borrado, solo apartado.
 
+## Publicación
+
+- Repo: https://github.com/xWeke/regalo (público; la cuenta crea repos privados por defecto,
+  se cambió a público porque GitHub Pages gratis lo exige).
+- Web: https://xweke.github.io/regalo/ — se despliega sola con el workflow
+  [.github/workflows/deploy.yml](.github/workflows/deploy.yml) en cada push a `main`
+  (Pages configurado en modo "GitHub Actions").
+- `vite.config.js` usa `base: /regalo/` solo en build; en dev sigue en `/`. Si se renombra el
+  repo hay que cambiar ese base.
+- La CLI `gh` no tiene sesión propia: se usa el token del gestor de credenciales de git
+  (`git credential fill`) vía `GH_TOKEN` porque le falta el scope `read:org` para `gh auth login`.
+
 ## Comandos
 
 ```
